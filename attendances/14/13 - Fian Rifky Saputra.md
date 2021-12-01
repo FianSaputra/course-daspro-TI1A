@@ -124,7 +124,7 @@ int bilangan, pangkat;
     15625
 
 
-#### Pertanyaan
+Pertanyaan
 1. Pada Percobaan2, terdapat pemanggilan fungsi rekursif hitungPangkat(bilangan, pangkat) pada fungsi main, kemudian dilakukan pemanggilan fungsi hitungPangkat() secara berulangkali. Jelaskan sampai kapan proses pemanggilan fungsi tersebut akan dijalankan!
 
 Jawaban
@@ -172,12 +172,12 @@ int saldoAwal, tahun;
         System.out.println(hitungBunga(saldoAwal, tahun));
 ```
 
-    Jumlah saldo awal: 20000
-    Lamanya menabung (tahun): 3
-    Jumlah uang setelah 3 tahun: 27352.62000000001
+    Jumlah saldo awal: 5000
+    Lamanya menabung (tahun): 5
+    Jumlah uang setelah 5 tahun: 8425.290775500005
 
 
-#### Pertanyaan
+Pertanyaan
 1. Pada Percobaan3, sebutkan blok kode program manakah yang merupakan “base case” dan “recursion call”!
 
 Jawaban
@@ -257,28 +257,20 @@ Scanner sc = new Scanner(System.in);
      int input;
     System.out.println("CekPrimaRekursif: ");
     int input = sc.nextInt();
-
-     for (int i = 2; i < input; i++) {
-         boolean isPrima = true;
-
-         for (int j = 2; j < i; j++) {
-             if(i%j==0){
-                 isPrima = false;
-                 break;
-             }
-         }
-
-         if(isPrima==true){
-         System.out.println(i+",");
-    }
-  }
- 
+static boolean CekPrimaRekursif(int n, int i) {
+    if(n < 2) return false;
+    if(n == 2) return true;
+    if(n % i == 0) return false;
+    if(i * i > n) return true;
+    
+    return CekPrimaRekursif(n, i + 1);
+}
+  System.out.println(CekPrimaRekursif(7, 2));
 ```
 
     CekPrimaRekursif: 
-    5
-    2,
-    3,
+    7
+    true
 
 
 4.	Sepasang marmut yang baru lahir (jantan dan betina) ditempatkan pada suatu pembiakan.  Setelah dua bulan pasangan marmut tersebut melahirkan sepasang marmut kembar (jantan dan betina). Setiap pasangan marmut yang lahir juga akan melahirkan sepasang marmut juga setiap 2 bulan.  Berapa pasangan marmut yang ada pada akhir bulan ke-12? Buatlah programnya menggunakan fungsi rekursif! (**Fibonacci**).
